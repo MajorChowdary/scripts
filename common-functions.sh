@@ -10,7 +10,7 @@ N="\e[0m"
 #info() {:;}
 #success() {:;}
 error() {
-	echo -e "${R}✗$1$N"
+	echo -e "${R}✗  $1$N"
 }
 
 ### Checking Root User or not
