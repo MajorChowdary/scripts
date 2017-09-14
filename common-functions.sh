@@ -7,8 +7,8 @@ N="\e[0m"
 ## Common Functions
 
 ### Print Functions
-info() {}
-success() {}
+#info() {:;}
+#success() {:;}
 error() {
 	echo -e "$R$1$N"
 }
@@ -20,4 +20,9 @@ if [ $LID -ne 0 ]; then
 	error "Your must be a root user to perform this command.."
 	exit 1
 fi
+}
+
+### Checking SELINUX
+CheckSELinux() {
+
 }
