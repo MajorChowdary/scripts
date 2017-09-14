@@ -24,5 +24,5 @@ fi
 
 ### Checking SELINUX
 CheckSELinux() {
-
+# Tes
 }
