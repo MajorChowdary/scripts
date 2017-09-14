@@ -34,7 +34,7 @@ fi
 
 ### Checking SELINUX
 CheckSELinux() {
-	STATUS=$(sestatusx | grep 'SELinux status:'| awk '{print $NF}')
+	STATUS=$(sestatus | grep 'SELinux status:'| awk '{print $NF}')
 	if [ "$STATUS" != 'disabled' ]; then 
 		error "SELINUX Enabled on the server, Hence cannot proceed. Please Disable it and run again.!!"
 		hint "Probably you can run the following script to disable SELINUX"
