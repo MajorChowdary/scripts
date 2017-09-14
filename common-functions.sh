@@ -10,7 +10,7 @@ N="\e[0m"
 #info() {:;}
 #success() {:;}
 error() {
-	echo -e "$R$1$N"
+	echo -e "${R}✗$1$N"
 }
 
 ### Checking Root User or not
@@ -24,5 +24,9 @@ fi
 
 ### Checking SELINUX
 CheckSELinux() {
-# Tes
+	STATUS=$(sestatusx | grep 'SELinux status:'| awk '{print $NF}')
+	if [ "$STATUS" != 'disabled' ]; then 
+		error "SELINUX Enabled on the server, Hence cannot proceed. Please Disable it and run again.!!"
+		exit 1
+	fi
 }
