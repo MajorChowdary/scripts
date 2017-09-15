@@ -16,6 +16,9 @@ hint() {
 info() {
 	echo -e " $1$N"
 }
+warning() {
+	echo -e "${Y}☑  $1$N "
+}
 success() {
 	echo -e "${G}✓  $1$N"
 }
