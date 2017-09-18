@@ -94,12 +94,14 @@ EnableEPEL() {
 }
 
 ### Enable Docker Repository
-wget https://download.docker.com/linux/centos/docker-ce.repo -O /etc/yum.repos.d/docker-ce.repo &>/dev/null
-if [ $? -eq 0 ]; then 
-	yum makecache fast &>/dev/null
-	success "Enabled Docker CE Repository Successfully"
-else
-	error "Setting up docker repository failed"
-	info "Try Manually .. Ref Guide : https://docs.docker.com/engine/installation/linux/docker-ce/centos/"
-	exit 1
-fi
+DockerCERepo() {
+	wget https://download.docker.com/linux/centos/docker-ce.repo -O /etc/yum.repos.d/docker-ce.repo &>/dev/null
+	if [ $? -eq 0 ]; then 
+		yum makecache fast &>/dev/null
+		success "Enabled Docker CE Repository Successfully"
+	else
+		error "Setting up docker repository failed"
+		info "Try Manually .. Ref Guide : https://docs.docker.com/engine/installation/linux/docker-ce/centos/"
+		exit 1
+	fi
+}
