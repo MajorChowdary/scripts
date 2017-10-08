@@ -5,6 +5,8 @@ Y="\e[33m"
 G="\e[32m"
 BU="\e[1;4m"
 U="\e[4m"
+IU="\e[7m"
+LU="\e[2m"
 N="\e[0m"
 
 ELV=$(rpm -q basesystem |sed -e 's/\./ /g' |xargs -n 1|grep ^el)
@@ -30,12 +32,18 @@ error() {
 
 head_bu() {
 	echo -e "  $BU$1$N\n"
-	
 }
 
 head_u() {
-	echo -e "  $U$1$N\n"
-	
+	echo -e "  $U$1$N\n"	
+}
+
+head_iu() {
+	echo -e "  $IU$1$N\n"
+}
+
+head_lu() {
+	echo -e "  $LU$1$N\n"
 }
 
 ### Checking Root User or not
