@@ -39,7 +39,7 @@ head_u() {
 }
 
 head_iu() {
-	echo -e "  $IU$1$N\n"
+	echo -e "  \t$IU$1$N\n"
 }
 
 head_lu() {
