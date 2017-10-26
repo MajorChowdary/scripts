@@ -83,8 +83,9 @@ CheckFirewall() {
 DownloadJava() {
 	case $1 in
 		8) 
-			VERSION=jdk-8u151
-			BASE_URL_8=http://download.oracle.com/otn-pub/java/jdk/8u151-b12/090f390dda5b47b9b721c7dfaa008135/$VERSION
+			curl -s https://raw.githubusercontent.com/linuxautomations/scripts/master/java-params >/tmp/java-params
+			source /tmp/java-params
+			BASE_URL_8=http://download.oracle.com/otn-pub/java/jdk/$RELEASE/$SESSION_ID/$VERSION
 			JDK_VERSION=`echo $BASE_URL_8 | rev | cut -d "/" -f1 | rev`
 			platform="-linux-x64.rpm"
 			JAVAFILE="/opt/$VERSION$platform"
