@@ -56,6 +56,8 @@ LENV() {
 	Print NL Success G
 	wget https://raw.githubusercontent.com/carreerit/altus/master/enable-password-auth.sh -O /sbin/enable-password-auth.sh &>/dev/null
 	chmod +x /sbin/enable-password-auth.sh
+	wget https://raw.githubusercontent.com/linuxautomations/labautomation/master/labauto -O /sbin/labauto &>/dev/null
+	chmod +x /sbin/labauto
 }
 
 if [ `id -u` -ne 0 ]; then 
