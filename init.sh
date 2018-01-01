@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ -f /etc/allset ]; then 
+	echo "All Set .. Skipping"
+	exit 
+fi
+	
 Print() {
 
 	case $3 in 
