@@ -81,6 +81,10 @@ CheckFirewall() {
 }
 
 DownloadJava() {
+	if [ -x `which java` ]; then 
+		success "Java already Installed"
+		return
+	fi
 	case $1 in
 		8) 
 			curl -s https://raw.githubusercontent.com/linuxautomations/scripts/master/java-params >/tmp/java-params
