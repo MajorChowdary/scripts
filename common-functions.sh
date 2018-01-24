@@ -93,11 +93,11 @@ DownloadJava() {
 		8) 
 			curl -s https://raw.githubusercontent.com/linuxautomations/scripts/master/java-params >/tmp/java-params
 			source /tmp/java-params
-			BASE_URL_8=http://download.oracle.com/otn-pub/java/jdk/$RELEASE/$SESSION_ID/$VERSION
+			#BASE_URL8=http://download.oracle.com/otn-pub/java/jdk/$RELEASE/$SESSION_ID/$VERSION
 			JDK_VERSION=`echo $BASE_URL_8 | rev | cut -d "/" -f1 | rev`
 			platform="-linux-x64.rpm"
 			JAVAFILE="/opt/$VERSION$platform"
-			wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie"  "${BASE_URL_8}${platform}" -O $JAVAFILE &>/dev/null
+			wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie"  "${BASE_URL}${platform}" -O $JAVAFILE &>/dev/null
 			if [ $? -ne 0 ]; then 
 				error "Downloading JAVA Failed!"
 				exit 1
