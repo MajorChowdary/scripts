@@ -97,7 +97,7 @@ DownloadJava() {
 			JDK_VERSION=`echo $BASE_URL_8 | rev | cut -d "/" -f1 | rev`
 			platform="-linux-x64.rpm"
 			JAVAFILE="/opt/$VERSION$platform"
-			wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" "${BASE_URL_8}${platform}" -O $JAVAFILE &>/dev/null
+			wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie"  "${BASE_URL_8}${platform}" -O $JAVAFILE &>/dev/null
 			if [ $? -ne 0 ]; then 
 				error "Downloading JAVA Failed!"
 				exit 1
