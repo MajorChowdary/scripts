@@ -1,3 +1,6 @@
+#!/bin/bash
+
+
 ### Colors
 R="\e[31m"
 B="\e[34m"
