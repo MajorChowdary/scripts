@@ -83,6 +83,7 @@ CheckFirewall() {
 }
 
 DownloadJava() {
+	set -x
 	which java &>/dev/null
 	if [ $? -eq 0  ]; then 
 		success "Java already Installed"
