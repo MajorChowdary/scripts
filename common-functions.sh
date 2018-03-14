@@ -133,3 +133,14 @@ DockerCERepo() {
 		exit 1
 	fi
 }
+
+Stat() {
+	if [ $1 -eq 0 ] ; then 
+		success "$2"
+	elif [ $1 = "SKIP" ]; then 
+		warning "$2"
+	else 
+		error "$2"
+		exit 1
+	fi
+}
