@@ -43,5 +43,16 @@ gcloud compute instances create --image mycentos7 --zone europe-west1-b test  &>
 
 PUBLICIP=$(gcloud compute instances list | grep -w test  | awk  '{print $(NF-1)}')
 
+i=120
+while [ $i -gt 0 ]; do 
+    ncat  192.168.1.1  22 </dev/null >/dev/null 
+    if [ $? -eq 0 ]; then 
+        break
+    else
+        continue
+    fi 
+    error "SSH Connection Failed -IP : $PUIBLICIP"
+done
+
 Info "Connecting through SSH to run the script"
 ssh -i ~/devops.pem -l ec2-user -o StrictHostKeyChecking=no 130.211.65.32 "curl -s $URL | sudo bash"
