@@ -35,7 +35,7 @@ fi
 gcloud compute instances list | grep -w test &>>/tmp/log 
 if [ $? -eq 0 ]; then 
     Info "Deleting existing VM"
-    gcloud compute instances delete test --zone europe-west1-b &>>/tmp/log 
+    gcloud -q compute instances delete test --zone europe-west1-b &>>/tmp/log 
     Stat $? "Deleting VM"
 fi 
 
