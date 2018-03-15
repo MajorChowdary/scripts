@@ -29,7 +29,7 @@ gcloud config configurations activate $CONFIG &>/tmp/log
 
 Info "Checking Server running or not"
 gcloud compute instances list &>>/tmp/log 
-if [ $? -ne - 0 ]; then 
+if [ $? -ne 0 ]; then 
     error "Unable to get the vm list. Check Error in /tmp/log"
 fi
 gcloud compute instances list | grep -w test &>>/tmp/log 
