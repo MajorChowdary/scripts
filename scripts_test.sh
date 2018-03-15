@@ -51,9 +51,10 @@ while [ $i -gt 0 ]; do
     else
         continue
     fi 
-    error "SSH Connection Failed -IP : $PUIBLICIP"
+    error "SSH Connection Failed -IP : $PUBLICIP"
 done
 
 Info "Connecting through SSH to run the script"
-ssh -i ~/devops.pem -l ec2-user -o StrictHostKeyChecking=no $PUBLICIP "\"curl -s $URL | sudo bash\""
+scp -i  ~/devops.pem $SCRIPT ec2-user@$PUBLICIP:$SCRIPT &>/dev/null
+ssh -i ~/devops.pem -l ec2-user -o StrictHostKeyChecking=no $PUBLICIP "sh $SCRIPT"
 
