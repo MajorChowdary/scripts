@@ -55,4 +55,5 @@ while [ $i -gt 0 ]; do
 done
 
 Info "Connecting through SSH to run the script"
-ssh -i ~/devops.pem -l ec2-user -o StrictHostKeyChecking=no 130.211.65.32 "curl -s $URL | sudo bash"
+ssh -i ~/devops.pem -l ec2-user -o StrictHostKeyChecking=no 130.211.65.32 "\"curl -s $URL \| sudo bash\""
+
