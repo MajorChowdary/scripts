@@ -22,6 +22,9 @@ hint() {
 info() {
 	echo -e " $1$N"
 }
+Info() {
+	echo -e "➜  Info: $1$N"
+}
 warning() {
 	echo -e "${Y}☑  $1$N "
 }
