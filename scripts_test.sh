@@ -9,7 +9,7 @@ curl -s "https://raw.githubusercontent.com/linuxautomations/scripts/master/commo
 source /tmp/common-functions.sh
 
 SUMFILE=/tmp/sumfile 
-[ ! -s $SUMFILE ] && echo 0>/tmp/sumfile 
+[ ! -s $SUMFILE ] && echo "0" >/tmp/sumfile 
 
 CONFIG=$1 
 URL=$2 
