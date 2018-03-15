@@ -55,6 +55,6 @@ while [ $i -gt 0 ]; do
 done
 
 Info "Connecting through SSH to run the script"
-scp -i  ~/devops.pem $SCRIPT ec2-user@$PUBLICIP:$SCRIPT &>/dev/null
-ssh -i ~/devops.pem -l ec2-user -o StrictHostKeyChecking=no $PUBLICIP "sh $SCRIPT"
+scp -i  ~/devops.pem -o StrictHostKeyChecking=no  $SCRIPT ec2-user@$PUBLICIP:$SCRIPT &>/dev/null
+ssh -i ~/devops.pem -l ec2-user -o StrictHostKeyChecking=no $PUBLICIP "sudo sh $SCRIPT"
 
