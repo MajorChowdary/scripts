@@ -45,7 +45,7 @@ PUBLICIP=$(gcloud compute instances list | grep -w test  | awk  '{print $(NF-1)}
 
 i=120
 while [ $i -gt 0 ]; do 
-    ncat  192.168.1.1  22 </dev/null >/dev/null 
+    ncat  $PUBLICIP  22 </dev/null >/dev/null 
     if [ $? -eq 0 ]; then 
         break
     else
