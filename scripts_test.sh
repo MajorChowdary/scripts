@@ -42,7 +42,7 @@ fi
 gcloud compute instances create --image mycentos7 --zone europe-west1-b test  &>>/tmp/log 
 
 PUBLICIP=$(gcloud compute instances list | grep -w test  | awk  '{print $(NF-1)}')
-
+sed -i -e "/$PUBLICIP/ d" ~/.ssh/known_hosts 
 i=120
 while [ $i -gt 0 ]; do 
     ncat  $PUBLICIP  22 </dev/null &>/dev/null 
@@ -55,6 +55,6 @@ while [ $i -gt 0 ]; do
 done
 
 Info "Connecting through SSH to run the script"
-scp -i  ~/devops.pem -o StrictHostKeyChecking=no  $SCRIPT ec2-user@$PUBLICIP:$SCRIPT &>/dev/null
+scp -i ~/devops.pem -o StrictHostKeyChecking=no  $SCRIPT ec2-user@$PUBLICIP:$SCRIPT &>/dev/null
 ssh -i ~/devops.pem -l ec2-user -o StrictHostKeyChecking=no $PUBLICIP "sudo sh $SCRIPT"
 
