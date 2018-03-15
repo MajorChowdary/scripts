@@ -19,7 +19,7 @@ SCRIPT=/tmp/script
 OLDSUM=$(cat $SUMFILE)
 md5sum $SCRIPT | awk '{print $1}' > $SUMFILE 
 NEWSUM=$(cat $SUMFILE)
-if [ $OLDSUM = $NEWSUM ]; then 
+if [ "$OLDSUM" = "$NEWSUM" ]; then 
     Info "No Changes in script .. Hence skipping"
     exit 0
 fi 
