@@ -48,11 +48,11 @@ LENV() {
 
 	Print SL "=>> Setting Enviornment.. " B
 	sed -i -e '/TCPKeepAlive/ c TCPKeepAlive yes' -e '/ClientAliveInterval/ c ClientAliveInterval 10' /etc/ssh/sshd_config
-	curl https://raw.githubusercontent.com/versionit/docs/master/ps1.sh > /etc/profile.d/ps1.sh 2>/dev/null
+	curl https://raw.githubusercontent.com/linuxautomations/scripts/master/ps1.sh > /etc/profile.d/ps1.sh 2>/dev/null
 	chmod +x /etc/profile.d/ps1.sh
 	curl -s https://raw.githubusercontent.com/linuxautomations/scripts/master/devops-env.sh >/etc/profile.d/devops-env.sh
 	
-	curl https://raw.githubusercontent.com/versionit/docs/master/idle.sh -o /boot/idle.sh &>/dev/null
+	curl https://raw.githubusercontent.com/linuxautomations/scripts/master/idle.sh -o /boot/idle.sh &>/dev/null
 	chmod +x /boot/idle.sh
 	sed -i -e '/idle/ d' /var/spool/cron/root &>/dev/null
 	echo "*/10 * * * * sh -x /boot/idle.sh &>/tmp/idle.out" >/var/spool/cron/root
