@@ -148,4 +148,18 @@ Stat() {
 	fi
 }
 
+CheckOS() {
+  OSVER=$(rpm -qi basesystem | grep ^Release | awk '{print $NF}' | awk -F . '{print $1}')
+  case $1 in 
+     7) 
+     	if [ $OSVER -eq 7 ]; then 
+		return 0
+     	elif [ $OSVER -ne 7 ]; then 
+		error "Unsupported Opearating System... Expecting CentOS 7.x"
+		exit 1
+	fi
+  esac
+}
+
+
 #
