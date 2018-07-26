@@ -161,5 +161,25 @@ CheckOS() {
   esac
 }
 
+PrintCenter() {
+  TEXT=$1
+  IFS=$','
+  length=0
+  for title in $TEXT; do
+    l=${#title}
+    if [ $length -lt $l ]; then 
+       length=$l
+    fi
+  done
+  length=$(($length+4))
+  header=$(while [ $length -gt 0 ]; do echo '*';length=$(($length-1));done|xargs |sed -e 's/ //g')
+  COLUMNS=$(tput cols) 
+  printf "%*s\n" $(((${#header}+$COLUMNS)/2)) "$header"
+  for title in $TEXT ; do 
+    printf "%*s\n" $(((${#title}+$COLUMNS)/2)) "$title"
+  done
+  printf "%*s\n" $(((${#header}+$COLUMNS)/2)) "$header"
+}
+
 
 #
