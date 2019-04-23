@@ -31,6 +31,9 @@ warning() {
 success() {
 	echo -e "${G}✓  $1$N"
 }
+successt() {
+	echo -e "\t${G}✓  $1$N"
+}
 error() {
 	echo -e "${R}✗  $1$N"
 }
