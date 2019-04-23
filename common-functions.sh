@@ -25,6 +25,9 @@ info() {
 Info() {
 	echo -e "➜ INFO: $1$N"
 }
+Infot() {
+	echo -e "\t➜ INFO: $1$N"
+}
 warning() {
 	echo -e "${Y}☑  $1$N "
 }
