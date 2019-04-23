@@ -161,6 +161,20 @@ Stat() {
 	fi
 }
 
+Statt() {
+	if [ $1 -eq 0 ] ; then 
+		successt "$2"
+	elif [ $1 = "SKIP" ]; then 
+		warning "$2"
+	else 
+		error "$2"
+		exit 1
+	fi
+	if [ ! -z "$LOG" ]; then 
+		Split $LOG "$2"
+	fi
+}
+
 CheckOS() {
   OSVER=$(rpm -qi basesystem | grep ^Release | awk '{print $NF}' | awk -F . '{print $1}')
   case $1 in 
