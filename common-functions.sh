@@ -28,6 +28,9 @@ Info() {
 warning() {
 	echo -e "${Y}☑  $1$N "
 }
+warningt() {
+	echo -e "\t${Y}☑  $1$N "
+}
 success() {
 	echo -e "${G}✓  $1$N"
 }
@@ -37,7 +40,9 @@ successt() {
 error() {
 	echo -e "${R}✗  $1$N"
 }
-
+errort() {
+	echo -e "\t${R}✗  $1$N"
+}
 head_bu() {
 	echo -e "  $BU$1$N\n"
 }
@@ -165,9 +170,9 @@ Statt() {
 	if [ $1 -eq 0 ] ; then 
 		successt "$2"
 	elif [ $1 = "SKIP" ]; then 
-		warning "$2"
+		warningt "$2"
 	else 
-		error "$2"
+		errort "$2"
 		exit 1
 	fi
 	if [ ! -z "$LOG" ]; then 
