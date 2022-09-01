@@ -85,7 +85,7 @@ CheckSELinux() {
 CheckFirewall() {
 	
 	case $ELV in 
-		el7)
+		el7|el8)
 			systemctl disable firewalld &>/dev/null
 			systemctl stop firewalld &>/dev/null
 		;;
